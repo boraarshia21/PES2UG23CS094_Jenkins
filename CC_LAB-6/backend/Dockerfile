@@ -1,13 +1,8 @@
 FROM ubuntu:22.04
 
-RUN apt-get update && apt-get install -y g++
+RUN apt-get update && apt-get install -y build-essential
 
 WORKDIR /app
-
 COPY app.cpp .
-
 RUN g++ app.cpp -o app
-
-EXPOSE 8080
-
 CMD ["./app"]
